@@ -11,6 +11,7 @@ export const Header = () => {
         <FlexWrapper justify={"space-between"}>
           <Logo />
           <Menu />
+          <GetCv>DOWNLOAD CV</GetCv>
         </FlexWrapper>
       </Container>
     </StyledHeader>
@@ -18,6 +19,19 @@ export const Header = () => {
 };
 
 const StyledHeader = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 99999;
   background-color: #222222;
   padding: 10px 0;
+`;
+
+const GetCv = styled.button`
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 25px;
+  border-radius: 20px;
+  background-color: #f60838;
 `;

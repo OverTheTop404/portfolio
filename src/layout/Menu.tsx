@@ -30,7 +30,8 @@ const NavMenu = styled.nav`
     margin-left: 20px;
   }
   li a {
-    font-size: 21px;
+    font-size: 18px;
     color: #fff;
+    letter-spacing: 1px;
   }
 `;
