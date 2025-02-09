@@ -1,11 +1,23 @@
 // import rocket from "../../assets/images/rocketweb.png";
 // import styled from "styled-components";
 import { Icon } from "../icons/Icon.tsx";
+import styled from "styled-components";
 
 export const Logo = () => {
   return (
-    <a href="#">
-      <Icon iconId="viteIcon" viewBox={"0 0 256 257"} />
+    <Link href="#">
+      {/*<Icon*/}
+      {/*  iconId="rocketWebIcon"*/}
+      {/*  width={"70"}*/}
+      {/*  height={"70"}*/}
+      {/*  viewBox={"0 0 1080 1080"}*/}
+      {/*/>*/}
+      <Icon
+        iconId="rocketWebFull"
+        width={"auto"}
+        height={"100%"}
+        viewBox={"0 0 1830 470"}
+      />
       {/*<Image src={rocket} alt="rocketweb" />
 
       <Icon iconId="gitIcon" viewBox={"0 0 88 88"} />
@@ -27,9 +39,14 @@ export const Logo = () => {
           fill="black"
         />
       </svg>*/}
-    </a>
+    </Link>
   );
 };
+
+const Link = styled.a`
+  height: 70px;
+  width: 225px;
+`;
 
 // const Image = styled.img`
 //   max-width: 200px;

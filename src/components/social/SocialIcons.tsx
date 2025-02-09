@@ -1,43 +1,46 @@
 import styled from "styled-components";
 import { Icon } from "../icons/Icon.tsx";
 
+const SocialList = [
+  {
+    icon: "telegram",
+    viewBox: "0 0 40 34",
+    link: "https://t.me/over_the_top_404",
+  },
+  {
+    icon: "vk",
+    viewBox: "0 0 363.301 363.301",
+    link: "https://vk.com/over_the_top_404",
+  },
+  {
+    icon: "gitIcon",
+    viewBox: "0 0 88 88",
+    link: "https://github.com/OverTheTop404",
+  },
+  {
+    icon: "discord",
+    viewBox: "0 0 25 20",
+    link: "https://discordapp.com/users/863116087033724949/",
+  },
+];
+
 export const SocialIcons = () => {
   return (
     <>
       <FindMe>Find me on</FindMe>
       <LinkItems>
-        <Link href={"#"}>
-          <Icon
-            iconId={"telegram"}
-            width={"25"}
-            height={"25"}
-            viewBox={"0 0 40 34"}
-          />
-        </Link>
-        <Link href={"#"}>
-          <Icon
-            iconId={"vk"}
-            width={"25"}
-            height={"25"}
-            viewBox={"0 0 363.301 363.301"}
-          />
-        </Link>
-        <Link href={"#"}>
-          <Icon
-            iconId={"gitIcon"}
-            width={"25"}
-            height={"25"}
-            viewBox={"0 0 88 88"}
-          />
-        </Link>
-        <Link href={"#"}>
-          <Icon
-            iconId={"discord"}
-            width={"25"}
-            height={"25"}
-            viewBox={"0 0 25 20"}
-          />
-        </Link>
+        {SocialList.map((item, index) => {
+          return (
+            <Link key={index} href={item.link} target={"_blank"}>
+              <Icon
+                iconId={item.icon}
+                width={"25"}
+                height={"25"}
+                viewBox={item.viewBox}
+              />
+            </Link>
+          );
+        })}
       </LinkItems>
     </>
   );

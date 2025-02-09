@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type FlexWrapperPropsType = {
-  justify?: "center" | "space-between" | "space-around";
+  justify?: "start" | "center" | "space-between" | "space-around";
   direction?: "row" | "column";
   wrap?: "wrap" | "nowrap";
   align?: string;
