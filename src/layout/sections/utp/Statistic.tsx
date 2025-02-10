@@ -1,14 +1,24 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 type StatisticPropsType = {
-  count: string;
+  count: number;
   text: string;
 };
 
 export const Statistic = (props: StatisticPropsType) => {
+  const val = props.count;
+  const time = 1000 / val;
+
+  const [currVal, setCurrVal] = useState(1);
+
+  useEffect(() => {
+    currVal !== val && setTimeout(setCurrVal, time, currVal + 1);
+  }, [currVal]);
+
   return (
     <StyledStatistic>
-      <HowMatch>{props.count}</HowMatch>
+      <HowMatch>{currVal}+</HowMatch>
       <p>{props.text}</p>
     </StyledStatistic>
   );

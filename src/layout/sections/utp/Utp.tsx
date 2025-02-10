@@ -8,9 +8,9 @@ import { AboutMeText } from "./AboutMe.tsx";
 import { Statistic } from "./Statistic.tsx";
 
 const statisticList = [
-  { count: "10+", text: "Year of experience" },
-  { count: "50+", text: "Global working client" },
-  { count: "1000+", text: "Some string" },
+  { count: 8, text: "Year of experience" },
+  { count: 20, text: "Global working client" },
+  { count: 50, text: "Сompleted works" },
 ];
 
 export const Utp = () => {
@@ -22,11 +22,9 @@ export const Utp = () => {
             <AboutMeText />
             <SocialIcons />
             <StatisticBox>
-              {statisticList.map((item, index) => {
-                return (
-                  <Statistic key={index} count={item.count} text={item.text} />
-                );
-              })}
+              {statisticList.map((item, index) => (
+                <Statistic key={index} {...item} />
+              ))}
             </StatisticBox>
           </About>
           <MainPhoto>
