@@ -21,6 +21,10 @@ export const GlobalStyled = createGlobalStyle`
         background-color: #292929;
     }
     
+    svg{
+        fill: white; 
+    }
+    
     a{
         text-decoration: none;
     }

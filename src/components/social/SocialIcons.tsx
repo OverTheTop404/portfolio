@@ -13,7 +13,7 @@ const SocialList = [
     link: "https://vk.com/over_the_top_404",
   },
   {
-    icon: "gitIcon",
+    icon: "gitHub",
     viewBox: "0 0 88 88",
     link: "https://github.com/OverTheTop404",
   },
@@ -68,4 +68,7 @@ const Link = styled.a`
   background-color: #222222;
   margin-right: 10px;
   border-radius: 4px;
+  &:hover svg {
+    fill: #f60838;
+  }
 `;

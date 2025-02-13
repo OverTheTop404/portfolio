@@ -1,15 +1,16 @@
 import { Header } from "./layout/Header.tsx";
 import { Utp } from "./layout/sections/utp/Utp.tsx";
 import { Skills } from "./layout/sections/skills/Skills.tsx";
-import { Line } from "./components/Line.tsx";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
-      <Utp />
-      <Line />
-      <Skills />
+      <Router>
+        <Header />
+        <Utp addLine={true} />
+        <Skills />
+      </Router>
     </>
   );
 }

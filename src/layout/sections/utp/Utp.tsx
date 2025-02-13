@@ -6,6 +6,7 @@ import Pattern from "../../../assets/images/pattern2.png";
 import { SocialIcons } from "../../../components/social/SocialIcons.tsx";
 import { AboutMeText } from "./AboutMe.tsx";
 import { Statistic } from "./Statistic.tsx";
+import { Line } from "../../../components/Line.tsx";
 
 const statisticList = [
   { count: 8, text: "Year of experience" },
@@ -13,26 +14,29 @@ const statisticList = [
   { count: 50, text: "Сompleted works" },
 ];
 
-export const Utp = () => {
+export const Utp = (props: { addLine: boolean }) => {
   return (
-    <MainScreen>
-      <Container>
-        <FlexWrapper justify={"space-between"}>
-          <About>
-            <AboutMeText />
-            <SocialIcons />
-            <StatisticBox>
-              {statisticList.map((item, index) => (
-                <Statistic key={index} {...item} />
-              ))}
-            </StatisticBox>
-          </About>
-          <MainPhoto>
-            <img src={PhotoUrl} alt="" />
-          </MainPhoto>
-        </FlexWrapper>
-      </Container>
-    </MainScreen>
+    <>
+      <MainScreen id={"about"}>
+        <Container>
+          <FlexWrapper justify={"space-between"}>
+            <About>
+              <AboutMeText />
+              <SocialIcons />
+              <StatisticBox>
+                {statisticList.map((item, index) => (
+                  <Statistic key={index} {...item} />
+                ))}
+              </StatisticBox>
+            </About>
+            <MainPhoto>
+              <img src={PhotoUrl} alt="" />
+            </MainPhoto>
+          </FlexWrapper>
+        </Container>
+      </MainScreen>
+      {props.addLine && <Line />}
+    </>
   );
 };
 

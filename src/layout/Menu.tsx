@@ -1,21 +1,55 @@
 import styled from "styled-components";
+import { HashLink } from "react-router-hash-link";
+import { useEffect, useState } from "react";
 
 export const Menu = () => {
+  const menuItemList = [
+    { id: "about", anchor: "About" },
+    { id: "skills", anchor: "Skills" },
+    { id: "projects", anchor: "Projects" },
+    { id: "contact", anchor: "Contact" },
+  ];
+
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    menuItemList.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        const { offsetTop, clientHeight } = element;
+        if (scrollY >= offsetTop && scrollY < offsetTop + clientHeight) {
+          setActiveSection(section.id);
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <NavMenu>
       <ul>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Skills</a>
-        </li>
-        <li>
-          <a href="#">Projects</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
+        {menuItemList.map((item, index) => {
+          return (
+            <li key={index}>
+              <HashLink
+                smooth
+                to={`#${item.id}`}
+                className={activeSection === item.id ? "active" : ""}
+              >
+                <span>#</span>
+                {item.anchor}
+              </HashLink>
+            </li>
+          );
+        })}
       </ul>
     </NavMenu>
   );
@@ -33,5 +67,11 @@ const NavMenu = styled.nav`
     font-size: 18px;
     color: #fff;
     letter-spacing: 1px;
+    &:hover span {
+      color: #f60838;
+    }
+  }
+  li a.active span {
+    color: #f60838;
   }
 `;
