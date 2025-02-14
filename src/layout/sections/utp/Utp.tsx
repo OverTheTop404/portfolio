@@ -14,7 +14,7 @@ const statisticList = [
   { count: 50, text: "Сompleted works" },
 ];
 
-export const Utp = (props: { addLine: boolean }) => {
+export const Utp = () => {
   return (
     <>
       <MainScreen id={"about"}>
@@ -35,7 +35,7 @@ export const Utp = (props: { addLine: boolean }) => {
           </FlexWrapper>
         </Container>
       </MainScreen>
-      {props.addLine && <Line />}
+      <Line />
     </>
   );
 };

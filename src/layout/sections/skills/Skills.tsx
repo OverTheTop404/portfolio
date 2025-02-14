@@ -4,6 +4,8 @@ import { StyledSection } from "../../../components/Section.tsx";
 import { Title } from "../../../components/Title.tsx";
 import styled from "styled-components";
 import { Icon } from "../../../components/icons/Icon.tsx";
+import { theme } from "../../../styles/Theme.ts";
+import { Line } from "../../../components/Line.tsx";
 
 const IconList = [
   { icon: "react", viewBox: "0 0 256 257", name: "React" },
@@ -26,31 +28,34 @@ const IconList = [
 
 export const Skills = () => {
   return (
-    <StyledSection id={"skills"}>
-      <Container>
-        <Title supTextDop={""} supTitle={"skills"} title={"My Tech Stack"} />
-        <FlexWrapper justify={"start"} wrap={"wrap"} gap={"20px"}>
-          {IconList.map((item, index) => {
-            return (
-              <Skill key={index}>
-                <Icon
-                  iconId={item.icon}
-                  height={"70px"}
-                  width={"70px"}
-                  viewBox={item.viewBox}
-                />
-                <SkillName>{item.name}</SkillName>
-              </Skill>
-            );
-          })}
-        </FlexWrapper>
-      </Container>
-    </StyledSection>
+    <>
+      <StyledSection id={"skills"}>
+        <Container>
+          <Title supTextDop={""} supTitle={"Skills"} title={"My Tech Stack"} />
+          <FlexWrapper justify={"start"} wrap={"wrap"} gap={"20px"}>
+            {IconList.map((item, index) => {
+              return (
+                <Skill key={index}>
+                  <Icon
+                    iconId={item.icon}
+                    height={"70px"}
+                    width={"70px"}
+                    viewBox={item.viewBox}
+                  />
+                  <SkillName>{item.name}</SkillName>
+                </Skill>
+              );
+            })}
+          </FlexWrapper>
+        </Container>
+      </StyledSection>
+      <Line />
+    </>
   );
 };
 
 const Skill = styled.div`
-  background-color: #222222;
+  background-color: ${theme.color.secondaryBg};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,5 +69,4 @@ const SkillName = styled.span`
   display: block;
   margin-top: 20px;
   font-family: "globerbook", sans-serif;
-  //text-transform: uppercase;
 `;

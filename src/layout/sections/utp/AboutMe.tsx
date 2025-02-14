@@ -8,7 +8,7 @@ export const AboutMeText = () => {
       {/*<h2>Andrey Chaplygin</h2>*/}
       <Title>Frontend Developer</Title>
       <Description>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid at
+        My name Andrey Chaplygin, consectetur adipisicing elit. A aliquid at
         atque blanditiis, cupiditate dolor eius excepturi exercitationem fugiat
         omnis quae quidem quod, sed tempore veniam. Aspernatur dolore eum
         facilis impedit, iste laboriosam.

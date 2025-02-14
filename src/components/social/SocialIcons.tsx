@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "../icons/Icon.tsx";
+import { theme } from "../../styles/Theme.ts";
 
 const SocialList = [
   {
@@ -65,10 +66,10 @@ const Link = styled.a`
   align-items: center;
   width: 55px;
   height: 55px;
-  background-color: #222222;
+  background-color: ${theme.color.secondaryBg};
   margin-right: 10px;
   border-radius: 4px;
   &:hover svg {
-    fill: #f60838;
+    fill: ${theme.color.accent};
   }
 `;

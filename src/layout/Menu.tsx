@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { HashLink } from "react-router-hash-link";
 import { useEffect, useState } from "react";
+import { theme } from "../styles/Theme.ts";
 
 export const Menu = () => {
   const menuItemList = [
@@ -65,13 +66,12 @@ const NavMenu = styled.nav`
   }
   li a {
     font-size: 18px;
-    color: #fff;
     letter-spacing: 1px;
     &:hover span {
-      color: #f60838;
+      color: ${theme.color.accent};
     }
   }
   li a.active span {
-    color: #f60838;
+    color: ${theme.color.accent};
   }
 `;

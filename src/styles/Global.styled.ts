@@ -27,6 +27,7 @@ export const GlobalStyled = createGlobalStyle`
     
     a{
         text-decoration: none;
+        color: #fff;
     }
     p{
         font-family: "globerbook", sans-serif;
