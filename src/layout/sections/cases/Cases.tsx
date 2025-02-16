@@ -3,52 +3,42 @@ import { Container } from "../../../components/Container.tsx";
 import { Title } from "../../../components/Title.tsx";
 import { FlexWrapper } from "../../../components/FlexWrapper.tsx";
 import { Line } from "../../../components/Line.tsx";
-//import { useState } from "react";
-//import styled from "styled-components";
+import { useState } from "react";
+import styled from "styled-components";
+import { theme } from "../../../styles/Theme.ts";
 
-// const works = [
-//   {
-//     modx: [
-//       { title: "EpoxyTraining", url: "https://epoxytraining.us/", img: "asd" },
-//       { title: "ArmoGlaze", url: "https://armoglazeservice.com/", img: "asd" },
-//       { title: "RocketWeb", url: "https://rocketweb.pro/", img: "asd" },
-//       { title: "FoxSpb", url: "https://foxspb.com/", img: "asd" },
-//       { title: "Ponton64", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//     ],
-//   },
-//   {
-//     shops: [
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//     ],
-//   },
-//   {
-//     react: [
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//     ],
-//   },
-//   {
-//     any: [
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//       { title: "asd", url: "asd", img: "asd" },
-//     ],
-//   },
-// ];
-//
-// const [work, setWork] = useState("modx");
+const works = {
+  modx: [
+    { title: "EpoxyTraining", url: "https://epoxytraining.us/", img: "asd" },
+    { title: "ArmoGlaze", url: "https://armoglazeservice.com/", img: "asd" },
+    { title: "RocketWeb", url: "https://rocketweb.pro/", img: "asd" },
+    { title: "FoxSpb", url: "https://foxspb.com/", img: "asd" },
+    { title: "Ponton64", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+  ],
+  nexoos: [
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+  ],
+  react: [
+    { title: "123", url: "asd", img: "asd" },
+    { title: "123", url: "asd", img: "asd" },
+    { title: "123", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+    { title: "asd", url: "asd", img: "asd" },
+  ],
+};
 
 export const Cases = () => {
+  const [activeTab, setActiveTab] = useState("modx");
+
+  const changeTab = (e) => setActiveTab(e.target.innerText.toLowerCase());
+
   return (
     <>
       <StyledSection id={"projects"}>
@@ -57,23 +47,31 @@ export const Cases = () => {
             supTextDop={""}
             supTitle={"Portfolio"}
             title={"Recent works"}
+            align={"center"}
           />
-          <FlexWrapper justify={"start"} wrap={"wrap"} gap={"20px"}>
-            <ul>
-              {/*<li>*/}
-              {/*  <PanelBtn onClick={() => setWork("Modx")}>Modx</PanelBtn>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-              {/*  <PanelBtn onClick={() => setWork("Shops")}>Shops</PanelBtn>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-              {/*  <PanelBtn onClick={() => setWork("React")}>React</PanelBtn>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-              {/*  <PanelBtn onClick={() => setWork("Any")}>Any</PanelBtn>*/}
-              {/*</li>*/}
-            </ul>
-            <div>asd</div>
+          <TabsList>
+            {Object.keys(works).map((item, index) => {
+              return (
+                <li key={index}>
+                  <PanelBtn
+                    onClick={changeTab}
+                    className={item === activeTab ? "active" : ""}
+                  >
+                    {item}
+                  </PanelBtn>
+                </li>
+              );
+            })}
+          </TabsList>
+          <FlexWrapper
+            justify={"space-between"}
+            wrap={"wrap"}
+            gap={"20px"}
+            direction={"row"}
+          >
+            {works[activeTab].map((item, i) => {
+              return <StyledWork key={i}>{item.title}</StyledWork>;
+            })}
           </FlexWrapper>
         </Container>
       </StyledSection>
@@ -82,6 +80,39 @@ export const Cases = () => {
   );
 };
 
-// const PanelBtn = styled.button`
-//   padding: 5px;
-// `;
+const TabsList = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+    button.active {
+      background-color: ${theme.color.accent};
+    }
+  }
+`;
+
+const PanelBtn = styled.button`
+  background-color: ${theme.color.secondaryBg};
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledWork = styled.div`
+  background-color: ${theme.color.secondaryBg};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+  border-radius: 4px;
+  width: 32%;
+  height: 450px;
+`;

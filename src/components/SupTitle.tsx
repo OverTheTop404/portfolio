@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../styles/Theme.ts";
 
 type TitlePropTypes = {
   text?: string;
@@ -21,5 +22,5 @@ const StyledMarkedWrap = styled.div`
 `;
 
 const StyledMarked = styled.span`
-  color: #f60838 !important;
+  color: ${theme.color.accent} !important;
 `;
