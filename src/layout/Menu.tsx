@@ -48,6 +48,7 @@ const NavMenu = styled.nav`
     font-size: 18px;
     letter-spacing: 1px;
     &:hover span {
+      cursor: pointer;
       color: ${theme.color.accent};
     }
   }
