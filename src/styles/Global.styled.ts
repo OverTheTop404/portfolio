@@ -36,6 +36,7 @@ export const GlobalStyled = createGlobalStyle`
         list-style: none;
     }
     button{
+        color: #fff;
         border: none;
         background-color: unset;
     }

@@ -2,7 +2,6 @@ import { FlexWrapper } from "../../../components/FlexWrapper.tsx";
 import { Container } from "../../../components/Container.tsx";
 import styled from "styled-components";
 import PhotoUrl from "../../../assets/images/ami3.webp";
-import Pattern from "../../../assets/images/pattern2.png";
 import { SocialIcons } from "../../../components/social/SocialIcons.tsx";
 import { AboutMeText } from "./AboutMe.tsx";
 import { Statistic } from "./Statistic.tsx";
@@ -54,17 +53,6 @@ const MainScreen = styled.section`
   overflow: hidden;
   padding: 100px 0;
   z-index: 0;
-  // &:before {
-  //   content: "";
-  //   background-size: auto;
-  //   z-index: -1;
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   top: 0;
-  //   background: url(${Pattern});
-  // }
 `;
 
 const MainPhoto = styled.div`

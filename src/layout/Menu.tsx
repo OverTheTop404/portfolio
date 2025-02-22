@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { HashLink } from "react-router-hash-link";
-import { useEffect, useState } from "react";
+// import { HashLink } from "react-router-hash-link";
+// import { useEffect, useState } from "react";
 import { theme } from "../styles/Theme.ts";
+import { Link } from "react-scroll";
 
 export const Menu = () => {
   const menuItemList = [
@@ -11,43 +12,22 @@ export const Menu = () => {
     { id: "contact", anchor: "Contact" },
   ];
 
-  const [activeSection, setActiveSection] = useState("");
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-
-    menuItemList.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) {
-        const { offsetTop, clientHeight } = element;
-        if (scrollY >= offsetTop && scrollY < offsetTop + clientHeight) {
-          setActiveSection(section.id);
-        }
-      }
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <NavMenu>
       <ul>
         {menuItemList.map((item, index) => {
           return (
             <li key={index}>
-              <HashLink
-                smooth
-                to={`#${item.id}`}
-                className={activeSection === item.id ? "active" : ""}
+              <Link
+                activeClass="active"
+                spy={true}
+                to={item.id}
+                smooth={true}
+                offset={-90}
               >
                 <span>#</span>
                 {item.anchor}
-              </HashLink>
+              </Link>
             </li>
           );
         })}
