@@ -47,9 +47,11 @@ const NavMenu = styled.nav`
   li a {
     font-size: 18px;
     letter-spacing: 1px;
-    &:hover span {
+    &:hover {
       cursor: pointer;
-      color: ${theme.color.accent};
+      span {
+        color: ${theme.color.accent};
+      }
     }
   }
   li a.active span {
