@@ -39,6 +39,12 @@ export const Utp = () => {
   );
 };
 
+const MainPhoto = styled.div`
+  position: absolute;
+  top: -18%;
+  right: -10%;
+`;
+
 const StatisticBox = styled.div`
   margin-top: 4rem;
   display: flex;
@@ -53,12 +59,6 @@ const MainScreen = styled.section`
   overflow: hidden;
   padding: 100px 0;
   z-index: 0;
-`;
-
-const MainPhoto = styled.div`
-  position: absolute;
-  top: -18%;
-  right: -10%;
 `;
 
 const About = styled.div`
